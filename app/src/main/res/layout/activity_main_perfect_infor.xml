@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".projectJava.Fragment.MainFragment_mine"
+        tools:ignore="MissingDefaultResource">
+
+        <!-- TODO: Update blank fragment layout -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="点击更换头像"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/img_mine_header"
+                android:layout_width="100dp"
+                android:layout_height="100sp"
+                android:layout_centerInParent="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_mine_header"
+                android:gravity="center_horizontal">
+
+                <Button
+                    android:id="@+id/btn_take_photo"
+                    style="@style/MyButtonStyle"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_marginEnd="100dp"
+                    android:gravity="center"
+                    android:text="拍照" />
+
+                <Button
+                    android:id="@+id/btn_map_storage"
+                    style="@style/MyButtonStyle"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center"
+                    android:text="相册" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_account"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="账号"
+                android:textSize="@dimen/text_size_middle"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/et_account_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/tv_account"
+                android:gravity="center"
+                android:text="hyykk"
+                android:textSize="@dimen/text_size_middle" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/et_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="昵称"
+                android:textSize="@dimen/text_size_middle"
+                android:gravity="center_vertical" />
+
+            <EditText
+                android:id="@+id/et_name_text"
+                style="@style/MyEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/et_name"
+                android:gravity="center"
+                android:text="hyykk"
+                android:textSize="@dimen/text_size_middle"
+                />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="性别"
+                android:textSize="@dimen/text_size_middle"
+                android:gravity="center_vertical" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+
+                <RadioButton
+                    android:id="@+id/rb_man"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="男" />
+
+                <RadioButton
+                    android:id="@+id/rb_woman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="30dp"
+                    android:text="女" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="出生时间"
+                android:textSize="@dimen/text_size_middle"
+                android:gravity="center_vertical"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/et_birthday_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/tv_birthday"
+                android:padding="5dp"
+                android:textColorHint="@color/light_gray"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:text="2000年10月10日12时12分"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_city"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="城市"
+                android:textSize="@dimen/text_size_middle"
+                android:gravity="center_vertical"/>
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/sp_city"
+                style="@style/MyEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/tv_city"
+                android:entries="@array/cities"
+                android:spinnerMode="dropdown"
+                android:gravity="center" />
+            />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_phoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="电话"
+                android:textSize="@dimen/text_size_middle"
+                android:gravity="center_vertical" />
+
+            <EditText
+                android:id="@+id/et_phoneNumber_text"
+                style="@style/MyEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/tv_phoneNumber"
+                android:gravity="center_horizontal"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_idNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="身份证号"
+                android:textSize="@dimen/text_size_middle"
+                android:gravity="center_vertical" />
+
+            <EditText
+                android:id="@+id/et_idNumber_text"
+                style="@style/MyEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/tv_idNumber"
+                android:gravity="center_horizontal"
+                android:textSize="@dimen/text_size_middle" />
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/btn_perfect_information"
+            style="@style/MyButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:onClick="save"
+            android:text="保存" />
+
+        <Button
+            android:id="@+id/btn_exit"
+            style="@style/MyButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="退出登录"
+
+            />
+    </LinearLayout>
+</ScrollView>

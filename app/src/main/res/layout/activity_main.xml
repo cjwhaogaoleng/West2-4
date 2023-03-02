@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="欢迎"
+
+            android:textSize="40sp"
+            android:padding="20dp"
+            android:layout_margin="20dp"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:onClick="jumpToHome"
+            android:padding="30dp"
+            android:text="进入首页"
+            android:textSize="30sp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:onClick="jumpToAc2"
+            android:padding="30dp"
+            android:text="跳转到activity2"
+            android:textSize="30sp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:onClick="conveyBundle"
+            android:padding="30dp"
+            android:text="给activity2传个Bundle"
+            android:textSize="30sp" />
+
+        <Button
+            style="@style/MyButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:onClick="jumpToMenu"
+            android:padding="20dp"
+            android:text="跳到菜单测试界面" />
+
+        <Button
+            style="@style/MyButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:onClick="jumpToFragmentTest"
+            android:padding="20dp"
+            android:text="跳到fragment测试界面" />
+
+        <Button
+            style="@style/MyButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:onClick="jumpToDynamicFragmentTest"
+            android:padding="20dp"
+            android:text="跳到动态fragment测试界面" />
+
+
+        <Button
+            style="@style/MyButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:onClick="jumpToFragmentToF"
+            android:padding="20dp"
+            android:text="跳到fraToFra界面" />
+
+        <Button
+            style="@style/MyButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:onClick="jumpToViewPager1"
+            android:padding="20dp"
+            android:text="跳到fraToFra界面" />
+
+
+    </LinearLayout>
+</ScrollView>

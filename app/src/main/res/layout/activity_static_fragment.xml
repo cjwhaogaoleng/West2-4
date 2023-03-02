@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity_StaticFragment"
+    tools:ignore="ExtraText">
+
+    <fragment
+        android:id="@+id/staticFragment"
+        android:name="com.example.myapplication.fragment.StaticBlankFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        tools:layout="@layout/fragment_static_blank" />
+
+    <!--        class="com.example.myapplication.fragment.StaticBlankFragment"-->
+
+    <!--        tools可以看见预览界面-->
+
+
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/staticFragment2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="10dp"-->
+<!--        class="com.example.myapplication.fragment.StaticBlankFragment"-->
+<!--        />-->
+<!--    &lt;!&ndash;    必须有id&ndash;&gt;-->
+
+</LinearLayout>
