@@ -62,6 +62,7 @@ public class activity_register extends AppCompatActivity implements View.OnClick
         }
 
         //注册数据存储
+        //弊端本地只能存一次
         SharedPreferences spRecord = getSharedPreferences("spRecord", MODE_PRIVATE);
         SharedPreferences.Editor edit = spRecord.edit();
         edit.putString("account", name);

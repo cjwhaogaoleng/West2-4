@@ -47,6 +47,7 @@
                     android:layout_margin="3dp"
                     android:layout_marginEnd="100dp"
                     android:gravity="center"
+                    android:onClick="takePhoto"
                     android:text="拍照" />
 
                 <Button
@@ -256,15 +257,6 @@
             android:onClick="save"
             android:text="保存" />
 
-        <Button
-            android:id="@+id/btn_exit"
-            style="@style/MyButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text="退出登录"
 
-            />
     </LinearLayout>
 </ScrollView>

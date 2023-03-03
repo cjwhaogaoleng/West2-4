@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.example.myapplication.projectJava.Activity.Activity_perfectInfor;
 import com.example.myapplication.R;
+import com.example.myapplication.projectJava.Activity.ImageUtil;
 import com.example.myapplication.projectJava.Activity.activity_login;
 
 /**
@@ -168,10 +169,20 @@ public class MainFragment_mine extends Fragment {
         String birthdayTime = sharedPreferences.getString("birthdayTime", "2000年1月1日0时0分");
         String gender = sharedPreferences.getString("gender", "男");
         String age = sharedPreferences.getString("age", "23");
+        String image64 = sharedPreferences.getString("image_64", "");
+//        SharedPreferences.Editor edit = sharedPreferences.edit();
+//        edit.remove("image_64");
+//        edit.apply();
 
         tvBirthday.setText(birthdayTime);
         tvCity.setText(city);
         tvName.setText(name);
+        if (image64.isEmpty()) {
+            iv_mine.setBackgroundResource(R.drawable.img);
+        }
+        else {
+            iv_mine.setImageBitmap(ImageUtil.base64ToImage(image64));
+        }
 
     }
 
