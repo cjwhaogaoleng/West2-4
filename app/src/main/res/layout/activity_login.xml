@@ -27,6 +27,7 @@
             android:layout_height="match_parent"
             android:hint="请输入手机号或用户名"
             android:inputType="none"
+            android:layout_marginTop="10dp"
             android:maxLines="1" />
     </LinearLayout>
 
@@ -94,5 +95,12 @@
         android:text="还没账号？"
 
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:onClick="jumpToRegister"
+        android:text="管理员账号"
 
+        />
 </LinearLayout>

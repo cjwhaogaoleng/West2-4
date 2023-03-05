@@ -110,25 +110,32 @@ public class activity_register extends AppCompatActivity implements View.OnClick
 
     }
 
+
     private void upLoad(String name, String pass) {
-        retrofit = new Retrofit.Builder().baseUrl("http://192.168.43.183:8080/Assessment4/").build();
+        new Thread(){
+            @Override
+            public void run() {
+                retrofit = new Retrofit.Builder().baseUrl("http://192.168.43.183:8080/Assessment4/").build();
 
-        User user = new User(name, pass);
-        Gson gson = new Gson();
-        String json = gson.toJson(user);
+                User user = new User(name, pass);
+                Gson gson = new Gson();
+                String json = gson.toJson(user);
 
-        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), json);
+                RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), json);
 
-        Call<ResponseBody> call = retrofit.create(Service.class).register(requestBody);
-        try {
-            Response<ResponseBody> response = call.execute();
-            System.out.println(response);
-            if (response.isSuccessful()) {
-                System.out.println(response.body().string());
+                Call<ResponseBody> call = retrofit.create(Service.class).register(requestBody);
+                try {
+                    Response<ResponseBody> response = call.execute();
+                    System.out.println(response);
+                    if (response.isSuccessful()) {
+                        System.out.println(response.body().string());
+                    }
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        }.start();
 
     }
 }

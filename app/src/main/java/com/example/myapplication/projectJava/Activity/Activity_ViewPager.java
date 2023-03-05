@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.example.myapplication.R;
 import com.example.myapplication.adapter.MyVPFragmentAdapter;
+import com.example.myapplication.projectJava.Fragment.MainFragment_home;
 import com.example.myapplication.projectJava.Fragment.MainFragment_mine;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -99,7 +100,7 @@ public class Activity_ViewPager extends AppCompatActivity {
     private void initData() {
         fragmentList = new ArrayList<>();
 
-        MainFragment_mine fragmentHome = MainFragment_mine.newInstance("主页", "");
+        MainFragment_home fragmentHome = MainFragment_home.newInstance("主页", "");
         MainFragment_mine fragmentMine = MainFragment_mine.newInstance("我的", "");
 
         fragmentList.add(fragmentHome);
