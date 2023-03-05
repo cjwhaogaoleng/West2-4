@@ -248,7 +248,7 @@
 
 
         <Button
-            android:id="@+id/btn_perfect_information"
+            android:id="@+id/btn_save"
             style="@style/MyButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -256,6 +256,16 @@
             android:gravity="center"
             android:onClick="save"
             android:text="保存" />
+
+        <Button
+            android:id="@+id/btn_back"
+            style="@style/MyButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:onClick="backToMine"
+            android:text="返回" />
 
 
     </LinearLayout>

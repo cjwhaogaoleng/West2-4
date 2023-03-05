@@ -119,6 +119,7 @@ public class Activity_perfectInfor extends AppCompatActivity {
         });
 
 
+//        出生日期选择
         tvBirthday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,6 +137,7 @@ public class Activity_perfectInfor extends AppCompatActivity {
 
     }
 
+//出生时间选择
     private void popTimePick() {
         new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
@@ -164,15 +166,14 @@ public class Activity_perfectInfor extends AppCompatActivity {
         tvBirthday.setText(birthdayTime);
         if (image64.isEmpty()) {
             ivHeader.setBackgroundResource(R.drawable.img);
-        }
-        else {
+        } else {
             ivHeader.setImageBitmap(ImageUtil.base64ToImage(image64));
         }
 
-        if (TextUtils.equals("男",gender)) {
+        if (TextUtils.equals("男", gender)) {
             rbMan.setSelected(true);
         }
-        if (TextUtils.equals("nv",gender)) {
+        if (TextUtils.equals("nv", gender)) {
             rbWoman.setSelected(true);
         }
 
@@ -296,5 +297,9 @@ public class Activity_perfectInfor extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public void backToMine(View view) {
+        this.finish();
     }
 }

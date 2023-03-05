@@ -13,8 +13,19 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.myapplication.MainActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.projectJava.Service;
+import com.example.myapplication.projectJava.UserResponds.User;
+import com.google.gson.Gson;
+
+import java.io.IOException;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class activity_login extends AppCompatActivity {
 
@@ -27,6 +38,8 @@ public class activity_login extends AppCompatActivity {
     private String account_test = "";
     private String password_test = "";
     private CheckBox cbRemember, cbAuto;
+
+    private Retrofit retrofit;
 
 
     @Override
@@ -48,14 +61,18 @@ public class activity_login extends AppCompatActivity {
                 String account = et_account.getText().toString();
                 String password = et_password.getText().toString();
 
+
+                ifLogin(account, password);
                 if (TextUtils.isEmpty(account_test)) {
                     Toast.makeText(activity_login.this, "未注册账号", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.equals(account, account_test)) {
                     if (TextUtils.equals(password, password_test)) {
-                        Toast.makeText(activity_login.this, "登录成功", Toast.LENGTH_SHORT).show();
-//记住密码
+                        if (ifLogin(account, password))
+                            Toast.makeText(activity_login.this, "登录成功", Toast.LENGTH_SHORT).show();
+
+                        //记住密码
                         if (cbRemember.isChecked()) {
                             SharedPreferences spRecord = getSharedPreferences("spRecord", MODE_PRIVATE);
                             SharedPreferences.Editor edit = spRecord.edit();
@@ -83,6 +100,24 @@ public class activity_login extends AppCompatActivity {
 
     }
 
+    //访问数据库进行登录登录
+    private boolean ifLogin(String account, String password) {
+        String ifLogin = "";
+        retrofit = new Retrofit.Builder().baseUrl("http://192.168.43.183:8080/Assessment4/").build();
+
+        Call<ResponseBody> call = retrofit.create(Service.class).login(account, password);
+        try {
+            Response<ResponseBody> response = call.execute();
+            System.out.println(response);
+            if (response.isSuccessful()) {
+                ifLogin = response.body().string();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return ifLogin.equals("true");
+    }
+
     //记住密码的操作
     private void initAP() {
 
@@ -99,8 +134,6 @@ public class activity_login extends AppCompatActivity {
             et_password.setText(password);
             cbRemember.setChecked(true);
         }
-
-
     }
 
     private void initView() {
@@ -117,7 +150,7 @@ public class activity_login extends AppCompatActivity {
     public void jumpToRegister(View view) {
         Intent intent = new Intent(this, activity_register.class);
 
-        startActivityForResult(intent,REQUEST_CODE_REGISTER);
+        startActivityForResult(intent, REQUEST_CODE_REGISTER);
     }
 
 

@@ -49,4 +49,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
 
+    //序列化和反序列话一个有用的包
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+
 }

@@ -14,6 +14,18 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
+import com.example.myapplication.projectJava.Service;
+import com.example.myapplication.projectJava.UserResponds.User;
+import com.google.gson.Gson;
+
+import java.io.IOException;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class activity_register extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,12 +34,19 @@ public class activity_register extends AppCompatActivity implements View.OnClick
     private RadioButton rbAgree;
     private Button register;
 
+    private Retrofit retrofit;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        initView();
 
+        register.setOnClickListener(this);
+    }
+
+    private void initView() {
         account = findViewById(R.id.et_account_r);
         password = findViewById(R.id.et_password_r);
         passConfirm = findViewById(R.id.et_passConfirm);
@@ -35,7 +54,6 @@ public class activity_register extends AppCompatActivity implements View.OnClick
         rbAgree = findViewById(R.id.rb);
 
         register = findViewById(R.id.btn_register);
-        register.setOnClickListener(this);
     }
 
     @Override
@@ -61,26 +79,56 @@ public class activity_register extends AppCompatActivity implements View.OnClick
             return;
         }
 
+        upLoad(name, pass);
+
+
+
+
         //注册数据存储
+        //账号存在本地
         //弊端本地只能存一次
         SharedPreferences spRecord = getSharedPreferences("spRecord", MODE_PRIVATE);
         SharedPreferences.Editor edit = spRecord.edit();
         edit.putString("account", name);
         edit.putString("password", pass);
 
-        //数据回传
 
+
+        //数据回传
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
         bundle.putString("account", name);
-        bundle.putString("password",pass);
+        bundle.putString("password", pass);
         intent.putExtras(bundle);
 
-        setResult(RESULT_CODE_REGISTER,intent);
+        setResult(RESULT_CODE_REGISTER, intent);
+
 
         Toast.makeText(activity_register.this, "注册成功", Toast.LENGTH_SHORT).show();
 
         this.finish();
+
+    }
+
+    private void upLoad(String name, String pass) {
+        retrofit = new Retrofit.Builder().baseUrl("http://192.168.43.183:8080/Assessment4/").build();
+
+        User user = new User(name, pass);
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
+
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), json);
+
+        Call<ResponseBody> call = retrofit.create(Service.class).register(requestBody);
+        try {
+            Response<ResponseBody> response = call.execute();
+            System.out.println(response);
+            if (response.isSuccessful()) {
+                System.out.println(response.body().string());
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

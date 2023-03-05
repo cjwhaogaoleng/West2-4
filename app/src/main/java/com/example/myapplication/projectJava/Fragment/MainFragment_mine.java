@@ -190,7 +190,7 @@ public class MainFragment_mine extends Fragment {
     private void initView(View view) {
         btn_exit = view.findViewById(R.id.btn_exit);
         iv_mine = view.findViewById(R.id.img_mine);
-        btn_perfect = view.findViewById(R.id.btn_perfect_information);
+        btn_perfect = view.findViewById(R.id.btn_save);
 
         tvCity = view.findViewById(R.id.tv_city_text);
         tvBirthday = view.findViewById(R.id.tv_birthday_text);

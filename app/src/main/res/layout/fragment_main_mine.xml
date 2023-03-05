@@ -133,7 +133,7 @@
 
 
         <Button
-            android:id="@+id/btn_perfect_information"
+            android:id="@+id/btn_save"
             style="@style/MyButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
